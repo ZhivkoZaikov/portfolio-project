@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-
+{% load staticfiles %}
 <head>
     <!-- <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,6 +19,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./css/index.css">
     <script src="https://kit.fontawesome.com/bac059198e.js"></script>
+    <title>Живко Зайков</title>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,7 +48,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-            <a class="navbar-brand" href="#">Zhivko Zaykov</a>
+            <a class="navbar-brand active" href="{% url 'home' %}">Zhivko Zaykov</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -55,9 +56,9 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <!-- ml-auto will move the links to the right -->
                 <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link " href="#">Facebook</a>
-                    <a class="nav-item nav-link" href="#">Resume</a>
-                    <a class="nav-item nav-link" href="./blog/">Блог</a>
+                    <a class="nav-item nav-link " target="blank"  href="https://www.facebook.com/Zhivko.Zaykov.85">Facebook</a>
+                    <a class="nav-item nav-link" href="{% static 'resume.txt' %}">Resume</a>
+                    <a class="nav-item nav-link" href=" {% url 'allblogs' %} ">Блог</a>
                     <!-- <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
                 </div>
             </div>
@@ -71,11 +72,12 @@
                 <h1 class="jumbotron-heading">Добре дошли в моя блог!</h1>
                 <p class="lead text-muted">Казвам се Живко и се занимавам с програмиране, като основно ползвам Python,
                     Django и Bootstrap.</p>
-                <p>
-                    <a href="mailto: suptmduser@gmail.com" class="btn btn-primary my-2">Имате въпрос? Изпратете мейл
-                        тук!</a>
+                    <p> <a href="mailto: suptmduser@gmail.com" class="btn btn-primary my-2">Имате въпрос? Изпратете мейл
+                        тук!</a>                </p>
+
                     <!-- <a href="#" class="btn btn-secondary my-2">Secondary action</a> -->
-                </p>
+                <img  width="600" height="400" src="{% static 'maini-laptop.jpg' %}" alt="">   
+
             </div>
         </section>
 
@@ -85,9 +87,9 @@
                         {% for job in jobs.all %}
 
                     <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
+                        <div class="card mb-4 shadow-sm ">
 
-                            <img class="bd-placeholder-img card-img-top" src="{{job.image.url}}" alt="">
+                            <img width="100%" height="225" class="card-img-top" src="{{job.image.url}}" alt="">
                                 <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                     <title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/>
                                     <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>

@@ -1,9 +1,10 @@
 from django.urls import path
-from .views import index_view
+from . import views
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
     # path('blog/', include('blog.urls')),
-    path('', index_view)
+    path('', views.allblogs, name='allblogs'),
+    path('<str:slug>/', views.detail, name='detail'),
 #     declare static media files
 ]
